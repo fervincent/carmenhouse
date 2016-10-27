@@ -5,6 +5,9 @@ subprojects {
 
     repositories {
         mavenCentral()
+        maven {
+            url "http://repo.opennms.org/maven2/"
+        }
     }
 
     jacoco {
@@ -18,6 +21,8 @@ subprojects {
             html.destination "${buildDir}/jacocoHtml"
         }
     }
+    group = 'com.pillinuma.accounting'
+    version = '0.0.1-SNAPSHOT'
 }
 
 

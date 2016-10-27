@@ -96,7 +96,7 @@ public class ReportGeneratorTest {
             ReportGenerator reportGenerator = new ReportGenerator(receipt);
 
 
-            JasperReport jasperReport = JasperCompileManager.compileReport("d:\\workspaces\\accounting\\financial-commons\\reports\\receipt.jrxml");
+            JasperReport jasperReport = JasperCompileManager.compileReport("../reports/receipt.jrxml");
             /*JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,
                     reportGenerator.getParameters(), new JREmptyDataSource());*/
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,
