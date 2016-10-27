@@ -54,4 +54,12 @@ public class EntryTest {
         assertNull(entry.getTag("labeltmp"));
     }
 
+    @Test
+    public void itShouldHaveConstructorWithNotNullProperties() {
+        Entry entry = new Entry("Desc 1", new BigDecimal("100.02"), LocalDate.of(2016, 06, 10));
+        assertEquals("Desc 1", entry.getDescription());
+        assertEquals(new BigDecimal("100.02"), entry.getAmount());
+        assertEquals(LocalDate.of(2016, 06, 10), entry.getDate());
+    }
+
 }

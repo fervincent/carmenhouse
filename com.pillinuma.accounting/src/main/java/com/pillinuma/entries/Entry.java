@@ -19,6 +19,13 @@ public class Entry {
     public Entry() {
         tags = new HashMap<>();
     }
+
+    public Entry(String description, BigDecimal amount, LocalDate date) {
+        this.description = description;
+        this.amount = amount;
+        this.date = date;
+    }
+
     public String getDescription() {
         return description;
     }

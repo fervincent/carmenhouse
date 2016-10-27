@@ -1,0 +1,8 @@
+dependencies {
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2.2'
+    compile project(':com.pillinuma.accounting')
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+group = 'com.pillinuma.accounting'
+version = '0.0.1-SNAPSHOT'
