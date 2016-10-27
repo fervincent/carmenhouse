@@ -12,6 +12,8 @@ public class CompanyTest {
     @Test
     public void itShouldHaveConstructor() {
         Company company = new Company("MyCompany");
+        company.setAddress("Av Eloy Alfaro");
         assertEquals("MyCompany", company.getName());
+        assertEquals("Av Eloy Alfaro", company.getAddress());
     }
 }

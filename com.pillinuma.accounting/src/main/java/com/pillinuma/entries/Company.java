@@ -5,17 +5,26 @@ package com.pillinuma.entries;
  */
 public class Company {
 
-    private Object name;
+    private String name;
+    private String address;
 
     public Company(String name) {
         this.name = name;
     }
 
-    public Object getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Object name) {
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
