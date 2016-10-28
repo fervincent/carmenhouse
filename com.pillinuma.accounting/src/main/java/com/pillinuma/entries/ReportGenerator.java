@@ -27,6 +27,7 @@ public class ReportGenerator {
     }
 
     public JRDataSource generateDataSourceReport() {
+        System.out.println("entries:" + receipt.getEntries().size());
         return new JRBeanCollectionDataSource(receipt.getEntries());
 
     }
@@ -48,6 +49,7 @@ public class ReportGenerator {
 
         parameters.put("issuedDate", issuedDate.getTime());
         parameters.put("total", calculateTotal());
+        parameters.put("entryds", generateDataSourceReport());
         return parameters;
     }
 

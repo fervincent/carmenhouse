@@ -86,6 +86,7 @@ public class ReportGeneratorTest {
         issuedDate.set(Calendar.DAY_OF_MONTH, localDate.getDayOfMonth());
         assertNotNull(parameters.get("issuedDate"));
         assertEquals(new BigDecimal("22056.60"), parameters.get("total"));
+        assertNotNull(parameters.get("entryds"));
         //assertEquals( issuedDate.getTime(), parameters.get("issuedDate"));
 
     }
@@ -99,8 +100,10 @@ public class ReportGeneratorTest {
             JasperReport jasperReport = JasperCompileManager.compileReport("../reports/receipt.jrxml");
             /*JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,
                     reportGenerator.getParameters(), new JREmptyDataSource());*/
+            reportGenerator.generateDataSourceReport();
+            //System.out.println(((JRDataSource)parameters.get("entryds")));
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,
-                    reportGenerator.getParameters(), reportGenerator.generateDataSourceReport());
+                    reportGenerator.getParameters(), new JREmptyDataSource());
 
             JasperExportManager.exportReportToPdfFile(jasperPrint, "build/recibo"+receipt.getNumber() + ".pdf");
         } catch (Exception e) {
