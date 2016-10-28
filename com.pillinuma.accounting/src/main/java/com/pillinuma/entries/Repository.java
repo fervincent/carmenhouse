@@ -13,11 +13,13 @@ public class Repository {
     private Company company;
     private List<Account> accounts;
     private List<Transaction> transactions;
+    private List<Customer> customers;
 
     public Repository(Company company) {
         this.company = company;
         this.accounts = new ArrayList<>();
         this.transactions = new ArrayList<>();
+        this.customers = new ArrayList<>();
     }
 
     public Company getCompany() {
@@ -39,4 +41,12 @@ public class Repository {
     public void addTransaction(Transaction transaction) {
         transactions.add(transaction);
     }
+
+    public void addCustomer(Customer customer) {
+        customers.add(customer);
+    }
+    public List<Customer> getCustomers() {
+        return Collections.unmodifiableList(customers);
+    }
+
 }

@@ -45,6 +45,7 @@ public class RepositoryTest {
         accounts.remove(0);
 
     }
+
     @Test
     public void itShouldHaveTransactions() {
 
@@ -55,6 +56,17 @@ public class RepositoryTest {
         repository.addTransaction(transactions.get(0));
         repository.addTransaction(transactions.get(1));
         assertEquals(transactions, repository.getTransactions() );
+    }
+
+    @Test
+    public void itShouldHaveCustomers() {
+        List<Customer> fixedCustomers = Arrays.asList(
+            new Customer("name1", "234", "Av dir"),
+            new Customer("name2", "567", "Av dir 2")
+        );
+        repository.addCustomer(fixedCustomers.get(0));
+        repository.addCustomer(fixedCustomers.get(1));
+        assertEquals(fixedCustomers, repository.getCustomers());
     }
 
 
