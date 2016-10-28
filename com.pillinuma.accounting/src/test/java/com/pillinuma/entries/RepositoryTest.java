@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -69,6 +70,16 @@ public class RepositoryTest {
         assertEquals(fixedCustomers, repository.getCustomers());
     }
 
+    @Test
+    public void itShouldHaveReceipts() {
+        Customer customer = new Customer("name1", "234", "Av dir");
+        List<Receipt> fixedReceipts = Arrays.asList(
+                new Receipt(1, customer, LocalDate.of(2016, 10, 28), company)
+        );
+        repository.addReceipt(fixedReceipts.get(0));
+
+        assertEquals(fixedReceipts, repository.getReceipts());
+    }
 
 
 

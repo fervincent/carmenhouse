@@ -35,7 +35,5 @@ public class Transaction {
         return entries;
     }
 
-    public void setEntries(List<Entry> entries) {
-        this.entries = entries;
-    }
+
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="receipt" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1f256f27-2641-4b1b-a75f-552a77186f44">
 	<property name="ireport.zoom" value="1.9487171000000014"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="177"/>
+	<property name="ireport.x" value="294"/>
+	<property name="ireport.y" value="465"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -173,8 +173,8 @@
 						</jr:columnHeader>
 						<jr:columnFooter style="table_CH" height="34" rowSpan="1"/>
 						<jr:detailCell style="table_TD" height="36" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="e88d1470-d111-4254-aa85-40bf31adf44b"/>
+							<textField isStretchWithOverflow="true">
+								<reportElement x="0" y="0" width="304" height="20" uuid="e88d1470-d111-4254-aa85-40bf31adf44b"/>
 								<box leftPadding="5"/>
 								<textElement>
 									<font size="12"/>
@@ -254,22 +254,32 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch">
+		<band height="65" splitType="Stretch">
 			<line>
-				<reportElement x="0" y="8" width="555" height="1" uuid="813338d2-c92c-4ab6-80f5-9e49040dac92"/>
+				<reportElement x="1" y="0" width="555" height="1" uuid="813338d2-c92c-4ab6-80f5-9e49040dac92"/>
 			</line>
 			<staticText>
-				<reportElement x="0" y="15" width="57" height="20" uuid="5c93e240-dff9-4c21-900a-ad7169f6c7f8"/>
+				<reportElement x="7" y="35" width="57" height="20" uuid="5c93e240-dff9-4c21-900a-ad7169f6c7f8"/>
 				<text><![CDATA[Generado:]]></text>
 			</staticText>
 			<textField pattern="yyyy-MM-dd">
-				<reportElement x="55" y="15" width="95" height="20" uuid="3190b59e-5621-411e-b954-9aec1646849a"/>
+				<reportElement x="62" y="35" width="95" height="20" uuid="3190b59e-5621-411e-b954-9aec1646849a"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<textField pattern="HH:mm">
-				<reportElement x="150" y="15" width="100" height="20" uuid="00306d3a-dadd-459a-8841-8f9e44ebbb22"/>
+				<reportElement x="157" y="35" width="100" height="20" uuid="00306d3a-dadd-459a-8841-8f9e44ebbb22"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="402" y="30" width="154" height="1" uuid="49510d81-c006-448a-9cd7-2ac504940660"/>
+			</line>
+			<staticText>
+				<reportElement x="302" y="22" width="100" height="20" uuid="97f5868c-09b4-407c-a055-17f543bb0532"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Encargado:]]></text>
+			</staticText>
 		</band>
 	</columnFooter>
 	<pageFooter>
