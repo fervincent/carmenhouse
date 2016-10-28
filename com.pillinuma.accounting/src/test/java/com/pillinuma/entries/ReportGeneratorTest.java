@@ -2,6 +2,7 @@ package com.pillinuma.entries;
 
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JREmptyDataSource;
+import net.sf.jasperreports.engine.JRParameter;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -87,6 +88,7 @@ public class ReportGeneratorTest {
         assertNotNull(parameters.get("issuedDate"));
         assertEquals(new BigDecimal("22056.60"), parameters.get("total"));
         assertNotNull(parameters.get("entryds"));
+        assertNotNull(parameters.get(JRParameter.REPORT_LOCALE));
         //assertEquals( issuedDate.getTime(), parameters.get("issuedDate"));
 
     }

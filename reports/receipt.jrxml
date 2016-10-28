@@ -206,7 +206,7 @@
 						</jr:columnHeader>
 						<jr:columnFooter style="table_CH" height="34" rowSpan="1"/>
 						<jr:detailCell style="table_TD" height="36" rowSpan="1">
-							<textField pattern="$#,##0.00">
+							<textField pattern="$#,##0.00" isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="90" height="20" uuid="ac42db90-4e3f-452b-9d76-9f7eb16cfe19"/>
 								<box leftPadding="5"/>
 								<textElement>
@@ -218,7 +218,7 @@
 					</jr:column>
 					<jr:column width="90" uuid="6a63b00e-260c-4d32-88ec-558de43ca6a0">
 						<jr:tableFooter style="table_TH" height="35" rowSpan="1">
-							<textField>
+							<textField pattern="$#,##0.00">
 								<reportElement x="0" y="0" width="90" height="30" uuid="b82282db-4333-4237-839a-3958e07798b4"/>
 								<box leftPadding="5"/>
 								<textElement>

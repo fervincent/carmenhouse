@@ -1,6 +1,7 @@
 package com.pillinuma.entries;
 
 import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.JRParameter;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.apache.commons.collections.map.HashedMap;
 
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -50,6 +52,8 @@ public class ReportGenerator {
         parameters.put("issuedDate", issuedDate.getTime());
         parameters.put("total", calculateTotal());
         parameters.put("entryds", generateDataSourceReport());
+        Locale locale = new Locale("es", "EC");
+        parameters.put(JRParameter.REPORT_LOCALE, locale);
         return parameters;
     }
 
