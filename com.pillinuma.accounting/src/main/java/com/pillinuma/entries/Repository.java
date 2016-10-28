@@ -20,7 +20,7 @@ public class Repository {
         this.transactions = new ArrayList<>();
     }
 
-    public Object getCompany() {
+    public Company getCompany() {
         return company;
     }
 
@@ -32,16 +32,8 @@ public class Repository {
         return Collections.unmodifiableList(accounts);
     }
 
-    public void setAccounts(List<Account> accounts) {
-        this.accounts = accounts;
-    }
-
     public List<Transaction> getTransactions() {
         return transactions;
-    }
-
-    public void setTransactions(List<Transaction> transactions) {
-        this.transactions = transactions;
     }
 
     public void addTransaction(Transaction transaction) {
