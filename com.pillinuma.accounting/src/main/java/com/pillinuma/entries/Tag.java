@@ -1,8 +1,12 @@
 package com.pillinuma.entries;
 
+import javax.persistence.Entity;
+
 /**
  * Created by fernando on 9/29/16.
  */
+
+@Entity
 public class Tag {
 
     private String name;

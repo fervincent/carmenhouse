@@ -1,5 +1,6 @@
 package com.pillinuma.entries;
 
+import javax.persistence.Entity;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -8,6 +9,8 @@ import java.util.List;
 /**
  * Created by fabad on 26/10/2016.
  */
+
+
 public class Account {
 
     private List<Entry> debits;

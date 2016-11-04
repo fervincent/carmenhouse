@@ -1,23 +1,55 @@
 package com.pillinuma.entries;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 /**
  * Created by fernando on 9/29/16.
  */
 public class EntryTest {
+
+    static EntityManagerFactory emf;
+    static EntityManager em;
+
+    @BeforeClass
+    public static void before() {
+        emf = Persistence.createEntityManagerFactory(
+                "accounting");
+        em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+        Entry entry = new Entry();
+        entry.setDescription("Expensive test 1");
+        entry.setAmount(new BigDecimal("200.25"));
+        entry.setDate(LocalDate.of(2016, 10, 25));
+        em.persist(entry);
+        em.flush();
+        em.getTransaction().commit();
+
+    }
+
+    @BeforeClass
+    public static void after() {
+        if(em!=null) em.close();
+        if(emf!=null) emf.close();
+    }
 
     @Test
     public void testItShouldHaveProperties() {
@@ -56,10 +88,73 @@ public class EntryTest {
 
     @Test
     public void itShouldHaveConstructorWithNotNullProperties() {
-        Entry entry = new Entry("Desc 1", new BigDecimal("100.02"), LocalDate.of(2016, 06, 10));
+        Entry entry = new Entry("Desc 1", new BigDecimal("100.02"),
+                LocalDate.of(2016, 06, 10));
         assertEquals("Desc 1", entry.getDescription());
         assertEquals(new BigDecimal("100.02"), entry.getAmount());
         assertEquals(LocalDate.of(2016, 06, 10), entry.getDate());
+    }
+
+    @Test
+    public void itShouldInheritFromBaseBO() {
+        BaseBO baseBO = new Entry();
+        baseBO.setId("1");
+        assertEquals("1", baseBO.getId());
+    }
+
+    @Test
+    public void itShouldPersist() {
+
+        em.getTransaction().begin();
+        Entry entry = new Entry();
+        entry.setDescription("Expensive test");
+        entry.setAmount(new BigDecimal("100.2"));
+        entry.setDate(LocalDate.of(2016, 10, 2));
+        em.persist(entry);
+        em.flush();
+        //em.close();
+
+        em.getTransaction().commit();
+        String entryId = entry.getId();
+
+        em.getTransaction().begin();
+        Entry entryFounded = em.find(Entry.class, entryId);
+        System.out.println("Entry Founded" + entryFounded.getDescription()
+                    + " " + entryFounded.getId());
+        assertEquals("Expensive test", entryFounded.getDescription());
+        assertEquals(LocalDate.of(2016, 10, 2), entryFounded.getDate());
+        assertTrue(new BigDecimal("100.2").compareTo(entryFounded.getAmount())==0);
+
+        em.flush();
+
+
+
+        em.getTransaction().commit();
+
+
+    }
+
+    @Test
+    public void itShouldFindByDate() {
+        em.getTransaction().begin();
+        TypedQuery<Entry> query = em.createNamedQuery("Entry.findByDate", Entry.class);
+        query.setParameter("date", LocalDate.of(2016, 10, 25));
+        Entry entryFounded = query.getSingleResult();
+        assertEquals("Expensive test 1", entryFounded.getDescription());
+
+        em.getTransaction().commit();
+    }
+
+    @Test
+    public void itShouldFindByAmount() {
+        em.getTransaction().begin();
+        TypedQuery<Entry> query = em.createNamedQuery("Entry.findByAmount", Entry.class);
+        query.setParameter("amount", new BigDecimal("200.250"));
+        Entry entryFounded = query.getSingleResult();
+        assertEquals("Expensive test 1", entryFounded.getDescription());
+
+
+        em.getTransaction().commit();
     }
 
 }

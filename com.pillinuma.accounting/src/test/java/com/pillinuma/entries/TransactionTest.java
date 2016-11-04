@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,8 +28,10 @@ public class TransactionTest {
     @Test
     public void itShouldHaveEntries () {
         List<Entry> fixedEntries = Arrays.asList(
-                new Entry("By a Car", new BigDecimal("30000"), LocalDate.of(2016,10,05)),
-                new Entry("By a Car", new BigDecimal("30000"), LocalDate.of(2016,10,05))
+                new Entry("By a Car", new BigDecimal("30000"),
+                        LocalDate.of(2016,10,05)),
+                new Entry("By a Car", new BigDecimal("30000"),
+                        LocalDate.of(2016,10,05))
         );
 
         Transaction transaction = new Transaction(new BigDecimal("1"));
