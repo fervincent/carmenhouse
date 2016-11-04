@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by fabad on 26/10/2016.
  */
-public class Receipt {
+public class Receipt extends BaseBO {
     private Customer customer;
     private int number;
     private LocalDate issuedDate;

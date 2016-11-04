@@ -47,6 +47,13 @@ public class ReceiptTest {
         assertEquals(fixedEntries, receipt.getEntries());
     }
 
+    @Test
+    public void itShouldInheritFromBaseBO() {
+        BaseBO baseBO = new Receipt(1, customer, LocalDate.of(2016, 10, 06),
+                company);
+
+    }
+
 
 
 }
