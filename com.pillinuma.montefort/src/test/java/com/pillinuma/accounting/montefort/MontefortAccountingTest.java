@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertNotNull;
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by fabad on 27/10/2016.
@@ -52,6 +53,7 @@ public class MontefortAccountingTest {
 
     @Test
     public void itShouldPrintReceipts() {
+        assertEquals(2, montefortAccounting.getReceipts().size());
         montefortAccounting.printReceipts();
     }
 

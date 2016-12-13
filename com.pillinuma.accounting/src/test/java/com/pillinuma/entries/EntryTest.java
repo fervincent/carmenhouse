@@ -70,6 +70,7 @@ public class EntryTest extends BaseTest {
         assertEquals(LocalDate.of(2016, 06, 10), entry.getDate());
     }
 
+
     @Test
     public void itShouldInheritFromBaseBO() {
         BaseBO baseBO = new Entry();
