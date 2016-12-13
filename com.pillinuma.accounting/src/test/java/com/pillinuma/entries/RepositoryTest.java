@@ -51,8 +51,8 @@ public class RepositoryTest {
     public void itShouldHaveTransactions() {
 
         List<Transaction> transactions = Arrays.asList(
-                new Transaction(new BigDecimal("1")),
-                new Transaction(new BigDecimal("2"))
+                new Transaction("Give in the third floor", new BigDecimal("1")),
+                new Transaction("Give in the third floor by the daughter", new BigDecimal("2"))
         );
         repository.addTransaction(transactions.get(0));
         repository.addTransaction(transactions.get(1));

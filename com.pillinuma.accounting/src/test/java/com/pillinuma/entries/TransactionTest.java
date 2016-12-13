@@ -19,9 +19,10 @@ public class TransactionTest {
     @Test
     public void itShouldHaveConstructor () {
 
-        Transaction transaction = new Transaction(new BigDecimal("1"));
+        Transaction transaction = new Transaction("Give in the third floor" ,new BigDecimal("1"));
         assertNotNull(transaction);
         assertEquals(new BigDecimal("1"), transaction.getNumber());
+        assertEquals("Give in the third floor", transaction.getDescription());
 
     }
 
@@ -34,7 +35,7 @@ public class TransactionTest {
                         LocalDate.of(2016,10,05))
         );
 
-        Transaction transaction = new Transaction(new BigDecimal("1"));
+        Transaction transaction = new Transaction("Give in the third floor", new BigDecimal("1"));
         transaction.addEntry(fixedEntries.get(0));
         transaction.addEntry(fixedEntries.get(1));
 

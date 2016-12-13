@@ -11,10 +11,15 @@ public class Transaction {
 
     private BigDecimal number;
     private List<Entry> entries;
+    /**
+     * place, hour, special signal to recognize the transaction
+     */
+    private String description;
 
-    public Transaction(BigDecimal number) {
+    public Transaction(String description, BigDecimal number) {
         this.number = number;
-        entries = new ArrayList<>();
+        this.entries = new ArrayList<>();
+        this.description = description;
     }
 
 
@@ -35,5 +40,7 @@ public class Transaction {
         return entries;
     }
 
-
+    public String getDescription() {
+        return description;
+    }
 }

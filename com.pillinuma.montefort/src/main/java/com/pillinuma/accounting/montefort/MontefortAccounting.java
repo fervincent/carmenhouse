@@ -30,7 +30,7 @@ public class MontefortAccounting extends Repository{
     }
 
     protected void addTransactions() {
-        Transaction transaction1 = new Transaction(new BigDecimal("1"));
+        Transaction transaction1 = new Transaction("Dado a la Señora Rosario Soto, por encargo de Ximena Fernández, Esposa de Fernando Abad", new BigDecimal("1"));
         Entry entry = new Entry();
         entry.setDescription("Pago de servicios Luz/Agua mes de Septiembre. Pago realizado " +
                 " en efectivo personalmente en el segundo piso");
@@ -39,7 +39,7 @@ public class MontefortAccounting extends Repository{
         transaction1.addEntry(entry);
 
         addTransaction(transaction1);
-        Transaction transaction2  = new Transaction(new BigDecimal("2"));
+        Transaction transaction2  = new Transaction("Dado por el arrendatario, Wladimir Velazco", new BigDecimal("2"));
         transaction2.addEntry(new Entry("Pago de medidor de agua interno y su correspondiente mano de obra para la instalación", new BigDecimal("100.00"),
                 LocalDate.of(2016, 12, 12)));
         addTransaction(transaction2);
